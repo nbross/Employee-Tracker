@@ -34,7 +34,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 ## Installation
 The following necessary dependencies must be installed to run the application properly: Node.js, VScode, mysql, inquirer, fs, console-table, and a terminal.
 
-## Walkthrough vid showing that it works. Heroku Not Working!
+## Walkthrough Video Showcasing the App
 [A walkthrough video of the Employee Tracker]()
 
 ## Run App
