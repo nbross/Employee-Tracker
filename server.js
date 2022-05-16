@@ -128,6 +128,41 @@ function addCompanyRole() {
         })
 };
 
+function addCompanyEmployee() {
+    inquirer.prompt ([
+        {
+        type: 'input',
+        message: 'Enter employee first name.',
+        name: 'FirstName'
+        },
+        {
+            type: 'input',
+            message: 'Enter employee last name.',
+            name: 'LastName'
+        },
+        {
+            type: 'input',
+            message: 'Enter employee ID number',
+            name: 'AddEmployeeID'
+        },
+        {
+            type: 'input',
+            message: 'Enter their managers ID',
+            name: 'AddManagerID'
+        }
+        
+    ])
+    .then(function (response) {
+        connection.query('INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)', 
+        [response.FirstName, response.LastName, response.AddEmployeeID, response.AddManagerID], function(err,response) {
+            console.log(err)
+            if (err) throw err;
+            console.table(response);
+        })
+        trackerMenu();
+    })
+}
+
 function Quit() {
     console.log('Thanks for using the employee tracker!');
     console.log('The company thanks you for your time!');
