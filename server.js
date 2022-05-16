@@ -94,7 +94,36 @@ function addCompanyDepartment() {
                     console.log(err)
                     if (err) throw err
                     console.table(response);
-                }) 
+                })
+            trackerMenu();
+        })
+};
+
+function addCompanyRole() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'Enter new role.',
+            name: 'AddCompanyRole'
+        },
+        {
+            type: 'input',
+            message: 'Enter new role salary.',
+            name: 'AddRoleSalary'
+        },
+        {
+            type: 'input',
+            message: 'Enter new role ID',
+            name: 'AddRoleID'
+        }
+    ])
+        .then(function (response) {
+            connection.query('INSERT INTO roles(title, salary, department_id) VALUES (?,?,?)',
+                [response.AddCompanyRole, response.AddRoleSalary, response.AddRoleID], function (err, response) {
+                    console.log(err)
+                    if (err) throw err;
+                    console.table(response);
+                })
                 trackerMenu();
         })
 };
