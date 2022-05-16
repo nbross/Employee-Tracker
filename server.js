@@ -23,7 +23,7 @@ function trackerMenu() {
         }])
         .then((answer) => {
             switch (answer.choice) {
-                
+
                 case 'View Company Departments':
                     viewCompanyDepartments();
                     break;
@@ -59,9 +59,29 @@ function viewCompanyDepartments() {
     })
 };
 
+function viewCompanyRoles() {
+    let request = "SELECT * FROM roles";
+    db.query(request, function (err, res) {
+        if (err) throw err;
+        console.log("Viewing All Company Roles");
+        console.table(res);
+        trackerMenu();
+    })
+};
+
+function viewCompanyEmployees() {
+    const request = "SELECT * FROM employee";
+    db.query(request, function (err, res) {
+        if (err) throw err;
+        console.log("Viewing All Company Employees");
+        console.table(res);
+        trackerMenu();
+    })
+};
+
 function Quit() {
-    console.log('Thanks for using the employee tracker!'); 
+    console.log('Thanks for using the employee tracker!');
     console.log('The company thanks you for your time!');
     console.log('Goodbye!');
     process.exit();
-}
+};
