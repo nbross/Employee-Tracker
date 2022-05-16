@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const mysql = require('mysql2');
 const db = require('./db/connection');
+const { connection } = require('./db');
 const { exit } = require('process');
 require('console.table');
 
@@ -77,6 +78,25 @@ function viewCompanyEmployees() {
         console.table(res);
         trackerMenu();
     })
+};
+
+function addCompanyDepartment() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'Enter new department name.',
+            name: 'AddCompanyDepartment'
+        }
+    ])
+        .then(function (response) {
+            connection.query('INSERT INTO department(name) VALUES(?)',
+                [response.AddCompanyDepartment], function (err, response) {
+                    console.log(err)
+                    if (err) throw err
+                    console.table(response);
+                }) 
+                trackerMenu();
+        })
 };
 
 function Quit() {
