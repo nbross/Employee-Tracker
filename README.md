@@ -35,14 +35,14 @@ THEN I am prompted to select an employee to update and their new role and this i
 The following necessary dependencies must be installed to run the application properly: Node.js, VScode, mysql, inquirer, fs, console-table, and a terminal.
 
 ## Walkthrough Video Showcasing the App
-[A walkthrough video of the Employee Tracker]()
+[A walkthrough video of the Employee Tracker](https://youtu.be/1CgDq-NsmcE)
 
 ## Run App
 The following command is needed to run the app: npm start
 
 ## Screenshot
 
-![Employee-Tracker]()
+![Employee-Tracker](./assets/images/2022-05-16.png)
 
 ## Repo link
 
